@@ -1,9 +1,8 @@
 package study.spring.spring6webapp.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
 public class Book {
@@ -12,6 +11,19 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
+
+    @ManyToMany
+    @JoinTable(name = "author book", joinColumns = @JoinColumn(name = "book id"),
+            inverseJoinColumns = @JoinColumn(name = "author id"))
+    private Set<Author> authors;
+
+    public Set<Author> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(Set<Author> authors) {
+        this.authors = authors;
+    }
 
     public Long getId() {
         return id;
