@@ -12,7 +12,9 @@ public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+//    @Column(nullable = false)
     private String lastName;
+//    @Column(nullable = false)
     private String firstName;
 
     @ManyToMany(mappedBy = "authors")
