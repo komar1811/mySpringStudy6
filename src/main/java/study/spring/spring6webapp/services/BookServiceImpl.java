@@ -5,7 +5,7 @@ import study.spring.spring6webapp.domain.Book;
 import study.spring.spring6webapp.repositories.BookRepository;
 
 @Service
-public class BookServiceImpl {
+public class BookServiceImpl implements BookService {
 
     private final BookRepository bookRepository;
 
